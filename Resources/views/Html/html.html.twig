@@ -1,0 +1,15 @@
+{% macro anchor(path, title, attributes) %}
+<a href={{ path }} {{ attributes |raw }}> {{ title }}</a>
+{% endmacro%}
+
+{% macro jqueryUiGetNotice(message, status) %}
+    {% if message is not empty%}
+        {% if status == "0" %}
+<div class='ui-corner-all ui-state-highlight' style='width:600px'><div class='ui-icon ui-icon-info' style='float:left'></div>{{message }}</div>
+        {% elseif status == "-1" %}
+<div class='ui-corner-all ui-state-error' style='width:600px'><div class='ui-icon ui-icon-alert' style='float:left'></div>{{ message }}</div>
+        {% elseif status == "1"%}
+<div class='ui-corner-all ui-state-active' style='width:600px'><div class='ui-icon ui-icon-circle-check' style='float:left'></div>{{ message }}</div>
+        {% endif%}
+    {% endif %}
+{% endmacro%}

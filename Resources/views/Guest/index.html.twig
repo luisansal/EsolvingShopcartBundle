@@ -1,0 +1,13 @@
+{% extends 'EsolvingShopcartBundle::template_guest.html.twig' %}
+{% trans_default_domain "EsolvingShopcartBundle" %}
+{% block title %} {% trans %} home {% endtrans%}{% endblock %}
+{% block content %}
+<h1>{{ block('title')}}</h1>
+{#{% if app.user is defined and app.user %}
+{{ dump(app.user.roles) }}
+{% endif %}#}
+{#{ dateObject | date }#}
+{#{ dateObject | localizeddate('long') }#}
+This is the home
+{#{{ html.jqueryUiGetNotice('asdf','0')}}#}
+{% endblock%}

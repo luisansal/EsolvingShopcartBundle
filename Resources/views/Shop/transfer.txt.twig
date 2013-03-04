@@ -1,0 +1,3 @@
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+{% trans with {'%business_cart%':esolving_shopcartB_core.getSetting('business_cart').languages.0.description,'%email_master%':global.email_master} %}info_payment_transfer_email{% endtrans %}
+{% include 'EsolvingShopcartBundle:Shop:cartDescription.html.twig' with {'cart':cart,'disabled':true,'email':true} %}

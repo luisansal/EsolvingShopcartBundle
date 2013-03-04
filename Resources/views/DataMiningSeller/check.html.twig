@@ -1,0 +1,93 @@
+{% extends 'EsolvingShopcartBundle::template_user.html.twig' %}
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+{% block title %}{% trans %}check{% endtrans %}{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+    $(function(){
+    $('.will-disabled').find('select').attr('disabled',true);
+    var $color = $('.will-disabled').eq(0).css('color');
+    $("input[name='{{ form.vars.name }}[choice_date]']").live('click',function(){         
+        $('.will-disabled').find('select').attr('disabled',true);
+        $('.will-disabled').css('color','gray');
+        $(this).parents('tr:first').find('.will-disabled').find('select').attr('disabled',false);
+        $(this).parents('tr:first').find('.will-disabled').css('color',$color);
+    });
+    
+    /*$('input[name="search"]').live('click',function(){
+        $.ajax({
+            type:"get",
+//            dataType :"json",
+            url: "{{ path('esolving_shopcartB_DataMiningSeller_check') }}",
+            data : $('form[name="{{ form.vars.name }}"]').find('select,input').serialize(),
+            success:function(data){
+                $('#request-search').html(data);
+            }
+        });
+        return false;
+    });*/
+});
+    </script>
+{% endblock %}
+{% block content %}
+    <form action="{{ path('esolving_shopcartB_DataMiningSeller_check')}}" method="get" {{ form_enctype(form) }} novalidate="" name="{{ form.vars.name }}">
+    {{ form_errors(form)}}
+            <table>
+                <thead>
+                <th colspan="2">{% trans %}search{% endtrans %}</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            {{ form_errors(form.best_sellers)}}
+                            {{ form_label(form.best_sellers)}}
+                            </td>
+                            <td>
+                            {{ form_widget(form.best_sellers)}}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_errors(form.bad_sellers)}}
+                                    {{ form_label(form.bad_sellers)}}
+                                    </td>
+                                    <td>
+                                    {{ form_widget(form.bad_sellers)}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="will-disabled">
+                                            {% trans %}betweenC{% endtrans %} {{ form_errors(form.date_start) }} {{ form_widget(form.date_start) }} {% trans %}and{% endtrans %} {{ form_errors(form.date_end) }} {{ form_widget(form.date_end) }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {{ form_widget(form.choice_date.0) }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="will-disabled">
+                        {{ form_errors(form.just_date)}}
+        {{ form_label(form.just_date) }} {{ form_widget(form.just_date) }} 
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    {{ form_widget(form.choice_date.1) }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>{{ form_label(form.category) }}</td>
+                                                <td>{{ form_widget(form.category) }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+        {{ form_rest(form) }}
+                                    <input type="submit" value="search" name='search'>
+                                </form>
+                                <div class="clearfix"></div>
+
+                                <div id="request-search">
+                                    {% include 'EsolvingShopcartBundle:DataMiningSeller:checkTable.html.twig' with {'items':items} %}
+                                </div>
+{% endblock content%}
+

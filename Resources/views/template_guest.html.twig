@@ -1,0 +1,109 @@
+{% if form is defined %}
+{% form_theme form 'EsolvingShopcartBundle:Form:fields.html.twig' %}
+{% endif %}
+{% import 'EsolvingShopcartBundle:Html:html.html.twig' as html %}
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %} {% trans %} welcome {% endtrans%}{% endblock %}</title>
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        {% block stylesheets %}
+        {% stylesheets filter='cssrewrite, ?yui_css'
+                'bundles/esolvingshopcart/css/reinstated/style_site.css'
+                'bundles/esolvingshopcart/js/jquery/jquery-ui/jquery-ui-1.8.20.custom/css/custom-theme/jquery-ui-1.8.20.custom.css'
+            %}
+        <link href="{{ asset_url }}" rel="stylesheet"  type="text/css" media="screen" />
+            {% endstylesheets %}
+        {% endblock stylesheets %}
+    </head>
+    <body>
+        <noscript>
+        <meta http-equiv="Refresh" content="0; url='{{ path('esolving_shopcartB_javascript_disabled') }}'"/>
+        </noscript>      
+        <div id="wrapper">
+            <div id="header">
+                <div id="logo">
+                    <img src="{{ asset('bundles/esolvingshopcart/images/e-solving_big.png') }}"/>
+                </div>
+                <div id="language">
+                        <form action="{{ path('esolving_shopcartB_set_language',{'route':app.request.get('_route')})}}" name='formSetLanguage' method="post">
+                            {% trans %} language {% endtrans%}:
+                    {{ esolving_shopcartB_core.ddlbLanguage() | raw }}
+                            </form>
+                        </div>
+                        <div id="system">
+                            <h2 id="project">{{ global.esolving.project.shopcart }}</h2>
+                        </div>
+                    </div>
+                    <div id="menu">
+                {% block menu %}
+                    {% include 'EsolvingShopcartBundle::menu_guest.html.twig' %}
+                {% endblock %}
+                            <br class="clearfix" />
+                        </div>
+
+                        <div id="page">
+                            <div id="content">
+                            {% block content %}
+                                    <div class="box">
+						<h2>Welcome to Reinstated</h2>
+						<p>
+							This is <strong>Reinstated</strong>, a free standards-compliant CSS template by <a href="http://nodethirtythree.com/">nodethirtythree</a> and <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>. The dropdowns are powered by <a href="http://nodethirtythree.com/jquery/dropotron">Dropotron</a>, and the banner/background images are from <a href="http://pdphoto.org">PDPhoto.org</a>. This free template is released under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attributions 3.0</a> license, so you are pretty much free to do whatever you want with it (even use it commercially) provided you keep the links in the footer intact. Aside from that, have fun with it :)
+						</p>
+					</div>
+                            {% endblock %}
+                                    <br class="clearfix" />
+                                </div>
+                                <div id="sidebar">
+                                    <div class="box">
+                                        {% block sidebar %}
+                                        <h3>Información opcional</h3>
+                                        <ul class="list">
+                                            <li class="first"><a href="#">Info1</a></li>
+                                            <li><a href="#">Info2</a></li>
+                                            <li><a href="#">Info3</a></li>
+                                            <li><a href="#">Info4</a></li>
+                                            <li><a href="#">Info5</a></li>
+                                            <li><a href="#">Info6</a></li>
+                                            <li><a href="#">Info7</a></li>
+                                            <li><a href="#">Info8</a></li>
+                                            <li class="last"><a href="#">Info9</a></li>
+                                        </ul>
+                                        {% endblock sidebar %}
+                                    </div>
+                                    <div class="box">
+                                        <h3>Contenido2</h3>
+                                        <p>
+                                            Información del contenido2.
+                                        </p>
+                                    </div>
+                                </div>
+                                <br class="clearfix" />
+                            </div>
+                        </div>
+                        <div id="footer">
+                            &copy; 2012 {% if 2012 != date()|date('Y')%} - {{ date() | date('Y')}}{%endif%}  {%trans%}designed{%endtrans%} {%trans%}and{%endtrans%} {%trans%}developed_by{%endtrans%} <a href="#">{{ global.enterprise}}</a>
+                        </div>
+    {% block javascripts %}
+        {% javascripts filter='?yui_js'
+            'bundles/esolvingshopcart/js/jquery/jquery-1.7.2.min.js'
+            'bundles/esolvingshopcart/js/jquery/jquery-ui/jquery-ui-1.8.20.custom/js/jquery-ui-1.8.20.custom.min.js'
+            'bundles/esolvingshopcart/js/init_site.js'
+            'bundles/esolvingshopcart/js/jquery/jquery-ui/jquery.ui.datepicker-es.js'
+            'bundles/esolvingshopcart/css/reinstated/jquery.dropotron-1.0.js'
+            'bundles/esolvingshopcart/css/reinstated/init.js' 
+        %}
+                        <script src="{{ asset_url }}" type="text/javascript"></script>
+        {% endjavascripts %}
+                        <script type=text/javascript>
+                            $(function(){
+                                $("select[name='ddlbLanguage']").live("change",function(){
+                                    $("form[name='formSetLanguage']").submit();
+                                });
+                            });
+                            </script>
+    {% endblock javascripts%}
+                        </body>
+                    </html>

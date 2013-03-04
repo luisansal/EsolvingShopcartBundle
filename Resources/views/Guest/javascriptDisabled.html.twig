@@ -1,0 +1,71 @@
+{% extends 'EsolvingEschoolGuestBundle::template_guest.html.twig' %}
+{% block title%}
+title
+{% endblock%}
+{% block body %}
+<div id="wrapper">
+    <!--			<div id="splash">
+                                    <img src="<?php echo site_url('public/reinstated/images/pic1.jpg');?>" alt="" />
+                            </div>-->
+    <div id="header">
+        <div id="logo">
+            <!--					<h1><a href="#">Reinstated</a></h1>-->
+            <h1><a href="#"><?php echo $this->core->site_name;?></a></h1>
+            <br/>
+            <p><?php echo $this->core->site_sub_name;?></p>
+        </div>
+        <div id="search">
+            <form action="" method="post">
+                <div>
+                    <input class="form-text" name="search" size="32" maxlength="64" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="menu">
+        <?php echo $siteMenu;?>
+        <br class="clearfix" />
+    </div>
+
+    <div id="page">
+        <div id="content">
+            <?php
+            echo apiJqueryUiGetNotification($this->core->apiGetLang("JavascriptDisabled"), 'error');
+            ?>					
+            <br/>
+            <?php 
+            echo $this->core->apiGetLang('IfIsAvailableClick').' '.anchor("site/log_in",$this->core->apiGetLang('Here'));
+            ?>
+            <br class="clearfix" />
+        </div>
+        <div id="sidebar">
+            <div class="box">
+                <h3>Morbi pharetra</h3>
+                <ul class="list">
+                    <li class="first"><a href="#">Pharetra massa convallis</a></li>
+                    <li><a href="#">Cras nulla ridiculus</a></li>
+                    <li><a href="#">Feugiat arcu tempus congue</a></li>
+                    <li><a href="#">Libero felis magna dolor</a></li>
+                    <li><a href="#">Pulvinar ut facilisis duis</a></li>
+                    <li><a href="#">Cras nulla ridiculus</a></li>
+                    <li><a href="#">Feugiat arcu volutpat congue</a></li>
+                    <li><a href="#">Libero felis dolor</a></li>
+                    <li class="last"><a href="#">Venenatis et vel duis</a></li>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>Magna luctus</h3>
+                <p>
+                    Ultrices odio amet diam sollicitudin primis penatibus. Ullamcorper nulla elementum aliquam dui a nisl montes.
+                </p>
+            </div>
+        </div>
+        <br class="clearfix" />
+    </div>
+</div>
+<div id="footer">
+    &copy; 2012 | <?php echo $this->core->apiGetLang('PoweredBy')?> <a href="http://nodethirtythree.com/jquery/dropotron">Dropotron</a> <?php echo $this->core->apiGetLang('And')?> <a href="#">JC Systems</a> | <?php echo $this->core->apiGetLang('DesignBy')?> <a href="http://nodethirtythree.com">nodethirtythree</a>, <a href="http://www.freecsstemplate_guests.org/">CSS template_guests</a> <?php echo $this->core->apiGetLang('And')?> <a href="#">JC Systems</a>.
+</div>
+{% endblock%}
+</html>
+

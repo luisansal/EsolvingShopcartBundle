@@ -1,0 +1,3 @@
+esolving_shopcart_bundle_third_sonata_admin_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: EsolvingShopcartBundleThirdSonataAdminBundle:Default:index }

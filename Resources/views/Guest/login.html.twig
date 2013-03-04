@@ -1,0 +1,33 @@
+{% extends 'EsolvingShopcartBundle::template_guest.html.twig' %}
+{% trans_default_domain "EsolvingShopcartBundle" %}
+{% block title %} {% trans %} log_in {% endtrans%}{% endblock %}
+{% block content %}
+<h1>{{ block('title')}}</h1>
+{#{{ dump(app.request.session.get('_security.secured_area.target_path')) }}#}
+{#{{ dump(app.request.server.get('HTTP_REFERER')) }}#}
+{#{{ dump(app.request.server.get('REQUEST_URI')) }}#}
+{#{% if 'secured' in app.request.session.get('_security.secured_area.target_path') %}
+{%trans%}to_see_this_page_you_must_log_in{%endtrans%}
+{% endif %}#}
+<form method="post" action="{{ path('login_check') }}" class="form_wrap">
+    {#<fieldset>
+        <legend align= "center">legend alineado al centro</legend>
+        Este es un ejemplo de un “fieldset” con el legend alineado al centro
+    </fieldset>#}
+        {% if error %}
+        <div class='form_errors'>{{ error.message|trans({},'EsolvingShopcartBundle') }}</div>
+        {% endif %}
+        <div class="form_label"><label for="username">{% trans %} code {% endtrans %}: </label></div>
+        <div class="form_widget"><input type='text' name='_username' value='{{ last_username }}' id="username"></div>
+        <div class="clearfix"></div>
+        <div class="form_label"><label for="password">{% trans %} password {% endtrans %}: </label></div>
+        <div class="form_widget"><input type='password' name='_password' id="password"></div>
+        <div class="clearfix"></div>
+        <div class="form_label"><label for="remember_me">{% trans %}keep_me_logged_in{% endtrans %}</label></div>
+        <div class="form_widget"><input type="checkbox" id="remember_me" name="_remember_me" checked /></div>
+        <div class="clearfix"></div>
+        <div class="form_label">&nbsp;</div>
+        <div class="form_widget"><input type='submit' value='{% trans %} log_in {% endtrans %}'></div>   
+        {#<input type="hidden" name="_target_path" value="esolving_eschool_userB_news" />#}
+    </form>
+{% endblock %}

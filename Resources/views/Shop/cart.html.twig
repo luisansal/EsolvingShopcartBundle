@@ -1,0 +1,23 @@
+{% extends "EsolvingShopcartBundle::template_user.html.twig"%}
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+{% block title %} {% trans %}my_cart{% endtrans %} {% endblock %}
+{% block content %}
+<div id="content">
+    <h2>{{ block('title') }}</h2>
+    <form method="post" action="{{ path('esolving_shopcartB_Shop_cart') }}" novalidate="">
+    {% if cart %}
+        {% trans with {'%time%':cart.expiredAt | created_left} %}you_have_a_x_time_left_to_make_your_purchase{% endtrans %}
+    {% endif %}
+    {% include 'EsolvingShopcartBundle:Shop:cartDescription.html.twig' with {'cart':cart,'disabled':false,'transfer':false} %}
+        {% if cart %}
+                    {% if cart.items | length > 0%}
+            <input type="submit" value="{% trans %}save{% endtrans %}" class="button"/>
+            <a href="{{ path('esolving_shopcartB_Shop_cart_buy_method') }}" class="button">{% trans %}buy{% endtrans %}</a>
+                    {% endif %}
+        {% endif %}
+        </form>
+    </div>
+{% endblock content %}
+{% block sidebar %}
+    {% render 'EsolvingShopcartBundle:Shop:categories' with {'current_category':''} %}
+{% endblock sidebar %}

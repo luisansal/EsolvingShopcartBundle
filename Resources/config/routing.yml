@@ -1,0 +1,141 @@
+esolving_shopcartB_User_create_only_user:
+    pattern:  /{_locale}/user/register-to-cart
+    defaults: { _controller: EsolvingShopcartBundle:User:createOnlyUser }        
+
+esolving_shopcartB_User_delete:
+    pattern:  /secured/{_locale}/user/{user_id}/delete
+    defaults: { _controller: EsolvingShopcartBundle:User:delete }        
+    
+esolving_shopcartB_User_edit:
+    pattern:  /secured/{_locale}/user/{user_id}/edit
+    defaults: { _controller: EsolvingShopcartBundle:User:edit }        
+    
+esolving_shopcartB_User_show:
+    pattern:  /secured/{_locale}/user/show
+    defaults: { _controller: EsolvingShopcartBundle:User:show }        
+
+esolving_shopcartB_DataMiningSeller_check:
+    pattern:  /secured/{_locale}/data-mining-seller/check
+    defaults: { _controller: EsolvingShopcartBundle:DataMiningSeller:check }        
+#    requirements:
+#        _method: GET
+    
+esolving_shopcartB_Shop_moderates:
+    pattern:  /secured/{_locale}/shop/moderates
+    defaults: { _controller: EsolvingShopcartBundle:Shop:moderates }        
+    
+esolving_shopcartB_Shop_no_moderates:
+    pattern:  /secured/{_locale}/shop/no-moderates
+    defaults: { _controller: EsolvingShopcartBundle:Shop:noModerates }            
+
+esolving_shopcartB_Shop_cart_paypal:
+    pattern:  /secured/{_locale}/shop/cart/paypal
+    defaults: { _controller: EsolvingShopcartBundle:Shop:cartPaypal }        
+    
+esolving_shopcartB_Shop_cartBuyEnd:
+    pattern:  /secured/{_locale}/shop/cart/end
+    defaults: { _controller: EsolvingShopcartBundle:Shop:cartBuyEnd }        
+    
+esolving_shopcartB_Shop_shop:
+    pattern:  /secured/{_locale}/shop/{category_id}/{category}
+    defaults: { _controller: EsolvingShopcartBundle:Shop:shop, category:'',category_id:'' }
+    requirements:
+        category_id:  \d+
+        
+esolving_shopcartB_Shop_shop_news:
+    pattern:  /secured/{_locale}/shop/news
+    defaults: { _controller: EsolvingShopcartBundle:Shop:shopNews }
+        
+
+esolving_shopcartB_Shop_show_service:
+    pattern:  /secured/{_locale}/shop/{category}/{service_id}/{service}
+    defaults: { _controller: EsolvingShopcartBundle:Shop:showService, category:'',service:'',service_id:'' }    
+    requirements:
+        service_id:  \d+
+
+esolving_shopcartB_Shop_add_item_service_to_cart:
+    pattern:  /secured/{_locale}/shop/viaje/add/{service_id}/{service}
+    defaults: { _controller: EsolvingShopcartBundle:Shop:addItemServiceToCart, service_id:'' }    
+    requirements:
+        service_id:  \d+
+
+esolving_shopcartB_Shop_delete_item:
+    pattern:  /secured/{_locale}/shop/viaje/delete/{item_id}
+    defaults: { _controller: EsolvingShopcartBundle:Shop:deleteItem, item_id:'' }    
+    requirements:
+        service_id:  \d+
+    
+esolving_shopcartB_Shop_cart:
+    pattern:  /secured/{_locale}/shop/cart/view
+    defaults: { _controller: EsolvingShopcartBundle:Shop:cart }    
+    
+esolving_shopcartB_Shop_cart_buy_method:
+    pattern:  /secured/{_locale}/shop/cart/buy-method
+    defaults: { _controller: EsolvingShopcartBundle:Shop:cartBuyMethod }    
+
+esolving_shopcartB_Shop_cart_buy_step1:
+    pattern:  /secured/{_locale}/shop/cart/buy-step-1
+    defaults: { _controller: EsolvingShopcartBundle:Shop:cartBuyStep1}        
+
+esolving_shopcartB_javascript_disabled:
+    pattern: /javascript-disabled
+    defaults: { _controller: EsolvingShopcartBundle:Guest:javascriptDisabled }
+    
+esolving_shopcartB_set_language:
+    pattern: /{_locale}/set-languages/{route}
+    defaults: { _controller: EsolvingShopcartBundle:Guest:setLanguage }
+    
+esolving_shopcartB_login:
+    pattern:  /{_locale}/login
+    defaults: { _controller: EsolvingShopcartBundle:Guest:logIn }
+    
+esolving_shopcartB_index:
+    pattern:  /{_locale}
+    defaults: { _controller: EsolvingShopcartBundle:Guest:index, _locale:'' }
+
+esolving_shopcartB_services:
+    pattern:  /{_locale}/services
+    defaults: { _controller: EsolvingShopcartBundle:Guest:services }
+    
+esolving_shopcartB_contact:
+    pattern:  /{_locale}/contact
+    defaults: { _controller: EsolvingShopcartBundle:Guest:contact }    
+    
+esolving_shopcartB_news:
+    pattern:  /{_locale}/news
+    defaults: { _controller: EsolvingShopcartBundle:Guest:news }
+    
+esolving_shopcartB_User_index:
+    pattern: secured/{_locale}/
+    defaults: { _controller: EsolvingShopcartBundle:User:home }
+
+esolving_shopcartB_User_profile:
+    pattern: secured/{_locale}/profile
+    defaults: { _controller: EsolvingShopcartBundle:User:profile }
+    
+esolving_shopcartB_User_register:
+    pattern: secured/{_locale}/user/register
+    defaults: { _controller: EsolvingShopcartBundle:User:register }    
+    
+login_backend:
+    pattern:  /{_locale}/backend/login
+    defaults: { _controller: EsolvingShopcartBundle:Backend:loginBackend }
+    
+login_check:
+    pattern: login/{_locale}/login-check
+    
+logout:
+    pattern: /{_locale}/logout
+    
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /backend/{_locale}/admin
+#    requirements:
+#        _locale: es|en|fr
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /backend/{_locale}/admin
+#    requirements:
+#        _locale: es|en|fr

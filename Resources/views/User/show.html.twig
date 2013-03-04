@@ -1,0 +1,85 @@
+{% extends "EsolvingShopcartBundle::template_user.html.twig" %}
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+{% block title %}{% trans %}show_users{% endtrans %}{% endblock %}
+{% block content %}
+<div id="content-large">
+    <h1>{{ block('title') }}</h1>
+    {{ users.pagination.render()|raw }}
+    <table class="fancyTable">
+        <thead>
+            <tr>
+                    {# sorting of properties based on query components #}
+                    <th{% if users.pagination.isSorted('user.code') %} class="sorted"{% endif %}>{{ users.pagination.sortable('code'| trans({}), 'user.code')|raw }}</th>
+                    <th{% if users.pagination.isSorted('user.name') %} class="sorted"{% endif %}>{{ users.pagination.sortable('name' | trans({}), 'user.name')|raw }}</th>
+                    <th{% if users.pagination.isSorted('user.address') %} class="sorted"{% endif %}>{{ users.pagination.sortable('address'| trans({}), 'user.address')|raw }}</th>
+                    <th>&nbsp;</th>
+                    <th{% if users.pagination.isSorted('user_distrit_type_languages.description') %} class="sorted"{% endif %}>{{ users.pagination.sortable('distrit'| trans({}), 'user_distrit_type_languages.description')|raw }}</th>
+                    <th{% if users.pagination.isSorted('user.email') %} class="sorted"{% endif %}>{{ users.pagination.sortable('email'| trans({}), 'user.email')|raw }}</th>
+                    <th{% if users.pagination.isSorted('user_groupblod_type_languages.description') %} class="sorted"{% endif %}>{{ users.pagination.sortable('group_blod'| trans({}), 'user_groupblod_type_languages.description')|raw }}</th>
+                    <th{% if users.pagination.isSorted('user.phone') %} class="sorted"{% endif %}>{{ users.pagination.sortable('phone'| trans({}), 'user.phone')|raw }}</th>
+                    <th{% if users.pagination.isSorted('user.phonemovil') %} class="sorted"{% endif %}>{{ users.pagination.sortable('phone_movil'| trans({}), 'user.phonemovil')|raw }}</th>
+                    <th{% if users.pagination.isSorted('user_sex_type_languages.description') %} class="sorted"{% endif %}>{{ users.pagination.sortable('sex'| trans({}), 'user_sex_type_languages.description')|raw }}</th>
+                    <th{% if users.pagination.isSorted('user.status') %} class="sorted"{% endif %}>{{ users.pagination.sortable('status'| trans({}), 'user.status')|raw }}</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th>{% trans %}code{% endtrans %}</th>
+                    <th>{% trans %}name{% endtrans %}</th>
+                    <th>{% trans %}address{% endtrans %}</th>
+                    <th>{% trans %}age{% endtrans %}</th>
+                    <th>{% trans %}distrit{% endtrans %}</th>
+                    <th>{% trans %}email{% endtrans %}</th>
+                    <th>{% trans %}group_blod{% endtrans %}</th>
+                    <th>{% trans %}phone{% endtrans %}</th>
+                    <th>{% trans %}phone_movil{% endtrans %}</th>
+                    <th>{% trans %}sex{% endtrans %}</th>
+                    <th>{% trans %}status{% endtrans %}</th>
+                    <th>{% trans %}roles{% endtrans %}</th>
+                    <th>{% trans %}photo{% endtrans %}</th>
+                    <th>{% trans %}options{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>
+        {% for user in users.pagination %}
+                    <tr>
+                        <td>{{ user.code }}</td>
+                        <td>{{ user.__toString }}</td>
+                        <td>{{ user.address }}</td>
+                        <td>{{ user.age }}</td>
+                        <td>{{ user.distritType.languages.0.description }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.groupblodType.languages.0.description }}</td>
+                        <td>{{ user.phone }}</td>
+                        <td>{{ user.phoneMovil }}</td>
+                        <td>{{ user.sexType.languages.0.description }}</td>
+                        <td>
+                        {% set enabled = (user.status) ? 'enabled':'disabled' %}
+                        {{ enabled | trans({})}}
+                            </td>
+                            <td>
+                {% for roles in user.rolesaccess %}
+                                    <ul>
+                                        <ol>{{ roles.roleType.languages.0.description }}</ol>
+                                    </ul>
+                {% endfor %}    
+                                </td>
+                                <td>
+                            {#{% if user.getWebPath %}
+                            <img src="{{ asset(user.getWebPath) }}" height="100" width="100"/>
+                            {% else %}
+                                {% trans %}no_image{% endtrans %}
+                            {% endif %}#}
+                                {% thumbnail user.image, 'admin' with {'width': 75, 'height': 60} %}
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('esolving_shopcartB_User_edit',{'user_id':user.id}) }}">{% trans %}edit{% endtrans %}</a>
+                                        <a href="{{ path('esolving_shopcartB_User_delete',{'user_id':user.id}) }}">{% trans %}delete{% endtrans %}</a>
+                                    </td>
+                                </tr>
+        {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>    
+{% endblock %}

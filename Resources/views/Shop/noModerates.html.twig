@@ -1,0 +1,50 @@
+{% extends 'EsolvingShopcartBundle::template_user.html.twig' %}
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+{% block title %}{% trans %}no_moderates{% endtrans %} {% endblock %}
+{% block submenu %}
+    {% include 'EsolvingShopcartBundle:Shop:menu_moderates.html.twig' %}
+{% endblock %}
+{% block content %}
+<div id="content">
+    <h2>{{ block('title') }}</h2>
+    <div id="pagination-no-moderates">
+        {{ cartNoModerates.pagination.render()|raw}}
+    </div>
+    <form action="{{ path('esolving_shopcartB_Shop_no_moderates') }}" method="post" novalidate="">
+    {{ form_errors(form)}}
+            <table class="fancyTable">
+                <thead>
+                    <tr>
+                        <th>{% trans %}client{% endtrans %}</th>
+                        <th>{% trans %}items{% endtrans %}</th>
+                        <th>{% trans %}subtotal{% endtrans %}</th>
+                        <th>{% trans %}date_check_out{% endtrans %}</th>
+                        <th>{% trans %}success{% endtrans %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+        {% for cartNoModerate in cartNoModerates.pagination %}
+                        <tr>
+                            <td>{{ cartNoModerate.cart.user.name }}</td>
+                            <td align="center">{{ cartNoModerate.cart.totalItems }}</td>
+                            <td>{{ default_money }} {{ cartNoModerate.cart.totalPrice }}</td>
+                            <td>{{ cartNoModerate.dateRegistered | localizeddate('long') }}</td>
+                            <td align="center">
+                    {{ form_widget(form.success[loop.index0].success)}}
+                    {{ form_widget(form.carts[loop.index0])}}
+                                </td>
+                            </tr>
+        {% else %}
+                            <tr>
+                                <td colspan="5">
+                            {% trans %}empty{% endtrans %}
+                                    </td>
+                                </tr>
+        {% endfor %}
+                            </tbody>
+                        </table>
+        {{ form_widget(form._token)}}
+                        <input type="submit" value="{% trans %}save{% endtrans %}">
+                    </form>
+                </div>
+{% endblock %}

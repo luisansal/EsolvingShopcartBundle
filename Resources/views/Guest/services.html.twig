@@ -1,0 +1,16 @@
+{% extends 'EsolvingShopcartBundle::template_guest.html.twig' %}
+{% trans_default_domain "EsolvingShopcartBundle" %}
+{% block title %} {% trans %} services {% endtrans %}{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+{#<script type="text/javascript">
+    $(function(){
+        $('.date').datepicker({ dateFormat: 'dd-mm-yy' })
+    });
+</script>#}
+{% endblock javascripts %}
+{% block content %}
+<h1>{{ block('title') }}</h1>
+this are the services
+{% endblock%}
+

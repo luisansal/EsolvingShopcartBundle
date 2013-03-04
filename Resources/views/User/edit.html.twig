@@ -1,0 +1,23 @@
+{% extends 'EsolvingShopcartBundle::template_user.html.twig'%}
+{% trans_default_domain 'EsolvingShopcartBundle'%}
+{% block title %}{% trans %}edit_user{% endtrans %}{% endblock %}
+{% block content %}
+<h1>{{ block('title') }}</h1>
+{{ form_errors(form) }}
+{{ html.jqueryUiGetNotice(info,status) }}
+<form action="{{ path('esolving_shopcartB_User_edit',{'user_id':user.id}) }}" method="post" {{ form_enctype(form) }} class="form_wrap">
+    {{ form_widget(form) }}
+        <div class="form_row">
+            <div class="form_label">&nbsp;</div>
+            {#<div class="form_widget">
+                {% if user.webPath %}
+                    <img src="{{ asset(user.webPath) }}" height="200" width="200"/>
+        {% else %}
+            {% trans %}no_image{% endtrans %}
+        {% endif %}
+                </div>#}
+            {% thumbnail user.image, 'admin' with {'width': 75, 'height': 60} %}
+        </div>
+        <input type="submit" value="{% trans %}edit{% endtrans %}">
+    </form>
+{% endblock content %}

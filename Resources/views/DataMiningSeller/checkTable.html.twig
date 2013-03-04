@@ -1,0 +1,43 @@
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+<div id="pagination-datamining-check">
+        {{ items.pagination.render() | raw }}
+    </div>
+    <table class="fancyTable">
+        <thead>
+            <tr>
+                <th>{% trans %}id{% endtrans %}</th>
+                <th>{% trans %}name{% endtrans %}</th>
+                <th>{% trans %}quantity{% endtrans %}</th>
+                <th>{% trans %}price{% endtrans %}</th>
+                <th>{% trans %}subtotal{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+                                        {% set total = 0 %}
+                {% for item in items.pagination %}
+                    {% if item.0 is defined %}
+                        {% set quantityOrAmount = item.amount %}
+                        {% set item = item.0 %}
+                    {% else %}                            
+                        {% set quantityOrAmount = item.quantity %}
+                    {% endif %}
+                    {% set total = total + item.service.price * quantityOrAmount %}
+                <tr>
+                    <td>{{ item.service.id }}</td>
+                    <td>{{ item.service.languages.0.name }}</td>
+                    <td>{{ quantityOrAmount }}</td>
+                    <td>{{ item.service.price }}</td>
+                    <td>{{ default_money}} {{ item.service.price * quantityOrAmount }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">{% trans %}empty{% endtrans %}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="3"></td>
+                    <td>{% trans %}total{% endtrans %}</td>
+                    <td>{{ default_money}} {{ total }}</td>
+                </tr>
+            </tbody>
+        </table>

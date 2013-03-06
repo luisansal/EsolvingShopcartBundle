@@ -50,6 +50,7 @@ class ServiceAdmin extends Admin {
                         )
                 )
                 ->add('price', null, array("label" => 'price'))
+                ->add('stock', null, array("label" => 'stock'))
                 ->add('image', 'sonata_type_model_list', array(), array('link_parameters' => array('context' => 'default')))
                 ->with('languages')
                 ->add('languages', 'sonata_type_collection', array(

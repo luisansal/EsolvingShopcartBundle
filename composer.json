@@ -29,5 +29,9 @@
         }
     },
     "target-dir": "Esolving/ShopcartBundle",
-    "minimum-stability": "dev"
+    "extra": {
+        "branch-alias": {
+            "dev-master": "dev-master"
+        }
+    }
 }

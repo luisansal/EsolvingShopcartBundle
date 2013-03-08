@@ -28,10 +28,5 @@
             "Esolving\\ShopcartBundle": ""
         }
     },
-    "target-dir": "Esolving/ShopcartBundle",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "-dev"
-        }
-    }
+    "target-dir": "Esolving/ShopcartBundle"
 }

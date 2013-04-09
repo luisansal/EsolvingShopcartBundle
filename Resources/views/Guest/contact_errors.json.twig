@@ -1,0 +1,30 @@
+{% extends app.request.isXmlHttpRequest ? "EsolvingShopcartBundle::template_guest_ajax.html.twig" : "EsolvingShopcartBundle::template_guest.html.twig" %}
+{% block content %}
+{#{
+    "0": {
+            "name": "{{ form.name.vars.name }}",
+            "error" : "{{ form_errors(form.name) }}"
+         }, 
+    "1": {
+            "name": "{{ form.email.vars.name }}",
+            "error" : "{{ form_errors(form.email) }}"
+         }, 
+    "2": {
+            "name": "{{ form.subject.vars.name }}",
+            "error" : "{{ form_errors(form.subject) }}"
+         }, 
+    "3": {
+            "name": "{{ form.message.vars.name }}",
+            "error" : "{{ form_errors(form.message) }}"
+         }
+ }#}
+{
+{% for key, item in form.children %}
+"{{ loop.index0 }}":{
+                        "name":"{{ key }}",
+                        "error":"{{ form_errors(item) }}"
+                    }{% if not loop.last %},{% endif %}
+{% endfor %}
+}
+{#{{ dump(form.children) }}#}
+{% endblock content%}

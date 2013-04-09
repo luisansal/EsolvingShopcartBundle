@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="">
+        <body>
+            <trans-unit id="invalid_email">
+                <source>invalid_email</source>
+                <target>This value must be a valid email address, the Email '{{ value }}' is invalid.</target>
+            </trans-unit>
+            <trans-unit id="min_length">
+                <source>min_length</source>
+                <!--<target>{0}|{1}et %count% autre|]1,Inf[voir les %count% autres</target>-->
+                <target>This value must have at least 1 character.| The field must have at least {{ limit }} characteres.</target>
+            </trans-unit>
+            <trans-unit id="this_value_is_not_actual_password">
+                <source>this_value_is_not_actual_password</source>
+                <target>This value isn't actual password</target>
+            </trans-unit>
+            <trans-unit id="the_password_and_new_password_fields_must_be_match">
+                <source>the_password_and_new_password_fields_must_be_match</source>
+                <target>The fields 'New password' and 'Confirmation password' must be match</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

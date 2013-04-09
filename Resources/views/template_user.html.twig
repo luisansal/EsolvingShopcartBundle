@@ -1,0 +1,126 @@
+{% extends '::base.html.twig' %}
+{% trans_default_domain "EsolvingShopcartBundle" %}
+{% block body %}
+<!DOCTYPE html>
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">#}
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %} {% trans %} welcome {% endtrans%}{% endblock %}</title>
+        {% block stylesheets %}
+        {% stylesheets filter='cssrewrite, ?yui_css' output="css/packed/all.css"
+                'bundles/esolvingshopcart/css/reinstated/style_campus.css'
+                'bundles/esolvingshopcart/js/jquery/jquery-ui/jquery-ui-1.8.20.custom/css/custom-theme/jquery-ui-1.8.20.custom.css'
+            %}
+        <link href="{{ asset_url }}" rel="stylesheet" media="screen" type="text/css" />
+            {% endstylesheets %}
+        {% endblock %}
+    </head>
+    <body>
+        <noscript>
+        <meta http-equiv="Refresh" content="0; url='{{ path('esolving_shopcartB_javascript_disabled') }}'"/>
+        </noscript>      
+        <div id="wrapper">
+            <div id="header">
+                <div id="logo">
+                    <img src="{{ asset('bundles/esolvingshopcart/images/e-solving_big.png') }}"/>
+                </div>
+                <div id="system">
+                    <div id="user">{{ app.user.name ~ app.user.lastname }}</div>
+                    <br class="clearfix"/>
+                    <div id="rol">{% trans %}sesion{% endtrans %} {{ app.user.rolesaccess.0.roleType.languages.0.description }}</div>
+                    <h2 id="project">{{ global.esolving.project.shopcart }}</h2>
+                </div>
+                <div id="language">
+                    <form action="{{ path('esolving_shopcartB_set_language',{'route':app.request.get('_route')})}}" name='formSetLanguage' method="post">
+                            {% trans %} language {% endtrans%}:
+                    {{ esolving_shopcartB_core.ddlbLanguage() | raw }}
+                        </form>
+                    </div>
+                </div>
+                <div id="menu">
+                {% block menu %}
+                    {% include 'EsolvingShopcartBundle::menu_user.html.twig' %}
+                {% endblock menu %}
+                        <br class="clearfix" />
+                    </div>
+                    {% block submenu%}
+
+                    {% endblock %}
+                    <div id="page">
+                            {% block content %}  
+                            <div id="content">
+                                {#{{ esolving_eschool_core.resultsTypeObject() | raw }}#}
+                                {#{{ esolving_eschool_core.resultsTypeArray() | raw }}#}        
+                                </div>
+                            {% endblock content %}
+                                        {% block sidebar %}
+                                <div id="sidebar">
+                                        {#<div class="box">
+                                        <h3>Morbi pharetra</h3>
+                                        <ul class="list">
+                                            <li class="first"><a href="#">Pharetra massa convallis</a></li>
+                                            <li><a href="#">Cras nulla ridiculus</a></li>
+                                            <li><a href="#">Feugiat arcu tempus congue</a></li>
+                                            <li><a href="#">Libero felis magna dolor</a></li>
+                                            <li><a href="#">Pulvinar ut facilisis duis</a></li>
+                                            <li><a href="#">Cras nulla ridiculus</a></li>
+                                            <li><a href="#">Feugiat arcu volutpat congue</a></li>
+                                            <li><a href="#">Libero felis dolor</a></li>
+                                            <li class="last"><a href="#">Venenatis et vel duis</a></li>
+                                        </ul>
+                                        </div>#}
+                                    {#<div class="box">
+                                        <h3>Magna luctus</h3>
+                                        <p>
+                                            Ultrices odio amet diam sollicitudin primis penatibus. Ullamcorper nulla elementum aliquam dui a nisl montes.
+                                        </p>
+                                    </div>#}
+                                    </div>
+                                        {% endblock sidebar %}
+                                    <br class="clearfix" />
+                                </div>
+                            </div>
+                            <div id="footer">
+                                &copy; 2012 {% if 2012 != date()|date('Y')%} - {{ date() | date('Y')}}{%endif%}  {% trans %}designed{% endtrans %} {%trans%}and{%endtrans%} {%trans%}developed_by{%endtrans%} <a href="#">{{ global.enterprise}}</a>
+                            </div>
+    {% block javascripts %}
+        {% javascripts filter='?yui_js'
+            'bundles/esolvingshopcart/js/jquery/jquery-1.7.2.min.js'
+            'bundles/esolvingshopcart/js/jquery/jquery-ui/jquery-ui-1.8.20.custom/js/jquery-ui-1.8.20.custom.min.js'
+            'bundles/esolvingshopcart/js/init_campus.js'
+            'bundles/esolvingshopcart/css/reinstated/jquery.dropotron-1.0.js'
+            'bundles/esolvingshopcart/css/reinstated/init.js' 
+        %}
+                            <script src="{{ asset_url }}" type="text/javascript"></script>
+        {% endjavascripts %}
+        {% if app.request.locale == 'es'%}
+            {% javascripts filter='?yui_js'
+            'bundles/esolvingshopcart/js/jquery/jquery-ui/jquery.ui.datepicker-es.js' 
+            %}
+                            <script src="{{ asset_url }}" type="text/javascript"></script>
+            {% endjavascripts %}
+        {% elseif app.request.locale == 'en' %}
+            {% javascripts filter='?yui_js'
+            'bundles/esolvingshopcart/js/jquery/jquery-ui/jquery.ui.datepicker-en-GB.js' 
+            %}
+                            <script src="{{ asset_url }}" type="text/javascript"></script>
+            {% endjavascripts %}
+        {% elseif app.request.locale == 'fr' %}
+            {% javascripts filter='?yui_js'
+            'bundles/esolvingshopcart/js/jquery/jquery-ui/jquery.ui.datepicker-fr.js' 
+            %}
+                            <script src="{{ asset_url }}" type="text/javascript"></script>
+            {% endjavascripts %}
+        {% endif %}
+                            <script type=text/javascript>
+                            $(function(){
+                                $("select[name='ddlbLanguage']").live("change",function(){
+                                    $("form[name='formSetLanguage']").submit();
+                                });
+                            });
+                                </script>
+    {% endblock javascripts %}
+                            </body>
+                        </html>
+                        {% endblock body %}

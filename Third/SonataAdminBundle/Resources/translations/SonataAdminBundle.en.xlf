@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="">
+        <body>
+            <trans-unit id="user">
+                <source>user</source>
+                <target>User</target>
+            </trans-unit>
+            <trans-unit id="general">
+                <source>general</source>
+                <target>General</target>
+            </trans-unit>
+            <trans-unit id="title_dashboard">
+                <source>title_dashboard</source>
+                <target>Administration</target>
+            </trans-unit>
+            <trans-unit id="log_out">
+                <source>log_out</source>
+                <target>Log out</target>
+            </trans-unit>
+            <trans-unit id="setting">
+                <source>setting</source>
+                <target>Configuration</target>
+            </trans-unit>
+            <trans-unit id="go_to_account">
+                <source>go_to_account</source>
+                <target>Go to my account</target>
+            </trans-unit>
+            <trans-unit id="shop">
+                <source>shop</source>
+                <target>Shop</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

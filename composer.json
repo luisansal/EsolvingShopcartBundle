@@ -1,0 +1,37 @@
+{
+    "name": "e-solving/shopcart-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony EsolvingShopcartBundle PHP >=5.3",
+    "keywords": ["shopping", "cart", "shopcart"],
+    "homepage": "https://github.com/e-solving/EsolvingShopcartBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luis Alberto Sánchez Saldaña",
+            "email": "luis22989@hotmail.com",
+            "homepage": "http://www.e-solving.net",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "symfony/http-foundation": ">=2.1,<2.3-dev",
+        "symfony/form": ">=2.1,<2.3-dev",
+        "symfony/validator": ">=2.1,<2.3-dev",
+        "symfony/security": ">=2.1,<2.3-dev",
+        "symfony/routing": ">=2.1,<2.3-dev",
+        "symfony/config": ">=2.1,<2.3-dev",
+        "symfony/console": ">=2.1,<2.3-dev",
+        "twig/twig": ">=1.10,<2.0-dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "Esolving\\ShopcartBundle": ""
+        }
+    },
+    "target-dir": "Esolving/ShopcartBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-2.1": "2.1.x-dev"
+        }
+    }
+}

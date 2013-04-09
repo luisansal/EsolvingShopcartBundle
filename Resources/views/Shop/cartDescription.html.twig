@@ -1,0 +1,114 @@
+{% extends '::base.html.twig' %}
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+{% block body %}
+{% if email is not defined %}
+ {% set email = false %}
+{% endif%}
+<div class="cart">
+    {% if not disabled %}
+        {{ form_errors(form)}}
+    {% endif%}
+        {% set total = 0 %}
+        <div class="box">
+            <table class="fancyTable" width="100%">
+                <thead>
+                    <tr>
+                        <th>{% trans %}id{% endtrans %}</th>
+                        {% if not email %}
+                        <th>{% trans %}image{% endtrans %}</th>
+                        {% endif %}
+                        <th>{% trans %}travel{% endtrans %}</th>
+                        <th>{% trans %}category{% endtrans %}</th>
+                        <th>{% trans %}quantity{% endtrans %}</th>
+                            {% if not disabled %}
+                        <th>{% trans %}option{% endtrans %}</th>
+                            {% endif %}
+                        <th>{% trans %}price{% endtrans %}</th>
+                        <th>{% trans %}subtotal{% endtrans %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if cart %}
+                        {% for item in cart.items %}
+                        <tr class="{% if loop.index0%2 == 0%}row-odd{% endif %}">
+                            <td>{{ item.service.id }}</td>
+                            {% if not email %}
+                            <td>
+                                <div class="service-media">{% media item.service.image, 'small' %}</div>
+                            </td>
+                            {% endif %}
+                            <td><input type="hidden" name="item_name_{{ loop.index }}" value="{{ item.service.languages.0.name }}">{{ item.service.languages.0.name }}</td>
+                            <td>{{ item.service.categories.0.languages.0.name }}</td>
+                            <td align="center" >
+                                <input type="hidden" name="amount_{{ loop.index }}" value="{{ (item.service.price/dolars_to_soles) | number_format(2,'.',',')}}">
+                                <input type="hidden" name="quantity_{{ loop.index }}" value="{{ item.quantity }}">                 
+                                        {% if disabled %}
+                                            {{ item.quantity }}
+                                            {% else %}
+                                    {{ form_widget(form.items[loop.index0].quantity) }}
+                                    {{ form_errors(form.items[loop.index0].quantity)}}
+                                            {% endif %}
+                            </td>
+                                        {% if not disabled %}
+                            <td align="center"><a href="{{ path('esolving_shopcartB_Shop_delete_item',{'item_id':item.id})}}">{% trans %}delete{% endtrans %}</a></td>
+                                        {% endif %}
+                            <td>{{ default_money }} {{ item.service.price}}</td>
+                            <td>{{ default_money }} {{ item.service.price*item.quantity}}
+                                    {% set total = total + item.service.price * item.quantity %}
+                                </td>
+                            </tr> 
+                        {% endfor %}
+                            <tr>
+                                {% if not email %}
+                                <td colspan="{% if not disabled %}6{% else %}5{% endif %}">&nbsp;</td>
+                                {% else %}
+                                <td colspan="{% if not disabled %}5{% else %}4{% endif %}">&nbsp;</td>
+                                {% endif %}
+                                <td>{% trans %}amount{% endtrans %}</td>
+                                <td>{{ default_money }} {{ total }}
+                                </td>
+                            </tr>   
+                            <tr>
+                                {% if not email %}
+                                <td colspan="{% if not disabled %}6{% else %}5{% endif %}">&nbsp;{% trans %}gvi{% endtrans %} {{ gvi_value }}</td>
+                                {% else %}
+                                <td colspan="{% if not disabled %}5{% else %}4{% endif %}">&nbsp;{% trans %}gvi{% endtrans %} {{ gvi_value }}</td>
+                                {% endif %}
+                                <td>{% trans %}gvi{% endtrans %}</td>
+                                <td>{{ default_money }} {{ total*gvi_value }}
+                                </td>
+                            </tr>
+                            <tr>
+                                {% if not email %}
+                                <td colspan="{% if not disabled %}6{% else %}5{% endif %}">&nbsp;</td>
+                                {% else %}
+                                <td colspan="{% if not disabled %}5{% else %}4{% endif %}">&nbsp;</td>
+                                {% endif %}
+                                <td>{% trans %}total_soles{% endtrans %}</td>
+                                <td>{{ default_money }} {{ (total*gvi_value + total) | number_format(2,'.',',') }}
+                                </td>
+                            </tr>
+                            <tr>
+                                {% if not email %}
+                                <td colspan="{% if not disabled %}6{% else %}5{% endif %}">&nbsp;</td>
+                                {% else %}
+                                <td colspan="{% if not disabled %}5{% else %}4{% endif %}">&nbsp;</td>
+                                {% endif %}
+                                <td>{% trans %}total_dolars{% endtrans %}</td>
+                                <td>{{ money_dolars }} {{ ((total*gvi_value + total)/dolars_to_soles) | number_format(2,'.',',') }}
+                                </td>
+                            </tr>
+                    {% else %}
+                            <tr>
+                                <td colspan="{% if not disabled %}8{% else %}7{% endif %}">{% trans %}not_bougth_anything_yet{% endtrans%}</td>
+                            </tr>
+                    {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+        <input type='hidden' name='tax_cart' value='{{ ((total*gvi_value)/dolars_to_soles) | number_format(2,'.',',') }}'>
+        {% if not disabled %}
+                {{ form_widget(form._token)}}
+        {% endif %}
+            </div>
+{% endblock body %}

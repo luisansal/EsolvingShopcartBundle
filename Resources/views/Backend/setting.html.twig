@@ -1,0 +1,16 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field%}
+{#{% if app.request.locale == 'es'%}
+{% set key = 0 %}
+{% else %}
+{% set key = 1 %}
+{% endif%}#}
+    <div>
+        {% for setting in object.settingType.languages %}
+            {{ setting }}{% if not loop.last %},{% endif %}
+            {% endfor%}
+        {#{{ object.settingType.languages.values[key].description }}#}
+            {#{{ object.settingType.languages.1.description }}#}
+    </div>
+{% endblock %}

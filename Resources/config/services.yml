@@ -1,0 +1,114 @@
+parameters:
+    esolving_shopcart.core.class: Esolving\ShopcartBundle\Core\Core
+    esolving_shopcart.validator.constraints.equals_fields.class: Esolving\ShopcartBundle\Validator\Constraints\EqualsFieldsValidator
+    esolving_shopcart.validator.constraints.is_actual_password.class: Esolving\ShopcartBundle\Validator\Constraints\IsActualPasswordValidator
+    esolving_shopcart.form.type.user_update.class: Esolving\ShopcartBundle\Form\Type\UserUpdateType
+    esolving_shopcart.form.type.user.class: Esolving\ShopcartBundle\Form\Type\UserType
+    esolving_shopcart.form.type.user_only.class: Esolving\ShopcartBundle\Form\Type\UserOnlyType
+    esolving_shopcart.form.type.role.class: Esolving\ShopcartBundle\Form\Type\RoleType
+    esolving_shopcart.form.type.check.class: Esolving\ShopcartBundle\Form\Type\CheckType
+    
+services:
+    esolving_shopcart.core:
+        class: %esolving_shopcart.core.class%
+        arguments: ['@translator','@service_container']
+        
+    esolving_shopcart.validator.constraints.equals_fields:
+        class: %esolving_shopcart.validator.constraints.equals_fields.class%
+        arguments: ['@translator']
+        tags:
+            - { name: validator.constraint_validator, alias: EqualsFieldsValidator }
+    esolving_shopcart.validator.constraints.is_actual_password:
+        class: %esolving_shopcart.validator.constraints.is_actual_password.class%
+        arguments: ['@doctrine.orm.entity_manager','@service_container']
+        tags:
+            - { name: validator.constraint_validator, alias: IsActualPasswordValidator }
+            
+    esolving_shopcart.form.type.user_update:
+        class: %esolving_shopcart.form.type.user_update.class%
+        arguments: ['@service_container']
+        
+    esolving_shopcart.form.type.user:
+        class: %esolving_shopcart.form.type.user.class%
+        arguments: ['@service_container','@doctrine.orm.entity_manager']
+        
+    esolving_shopcart.form.type.user_only:
+        class: %esolving_shopcart.form.type.user_only.class%
+        arguments: ['@service_container','@doctrine.orm.entity_manager']
+      
+    esolving_shopcart.form.type.role:
+        class: %esolving_shopcart.form.type.role.class%
+        arguments: ['@service_container']
+        
+    esolving_shopcart.form.type.check:
+        class: %esolving_shopcart.form.type.check.class%
+        arguments: ['@service_container','@doctrine.orm.entity_manager']
+        
+    admin.user:
+        class: Esolving\ShopcartBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm , group: user, label: users }
+        arguments: [null, Esolving\ShopcartBundle\Entity\User, SonataAdminBundle:CRUD ]
+        
+    admin.user_role:
+        class: Esolving\ShopcartBundle\Admin\RoleAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm , group: user, label: roles }
+        arguments: [null, Esolving\ShopcartBundle\Entity\Role, SonataAdminBundle:CRUD ]
+
+    admin.type:
+        class: Esolving\ShopcartBundle\Admin\TypeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm , group: general, label: types } 
+        arguments: [null, Esolving\ShopcartBundle\Entity\Type, SonataAdminBundle:CRUD ]  
+
+    admin.language:
+        class: Esolving\ShopcartBundle\Admin\LanguageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm , group: general, label: languages } 
+        arguments: [null, Esolving\ShopcartBundle\Entity\Language, SonataAdminBundle:CRUD ]  
+        
+    admin.setting:
+        class: Esolving\ShopcartBundle\Admin\SettingAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm , group: setting, label: settings } 
+        arguments: [null, Esolving\ShopcartBundle\Entity\Setting, SonataAdminBundle:CRUD ]  
+        
+    admin.setting_language:
+        class: Esolving\ShopcartBundle\Admin\SettingLanguageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm , group: setting, label: setting_language } 
+        arguments: [null, Esolving\ShopcartBundle\Entity\SettingLanguage, SonataAdminBundle:CRUD ]  
+        
+    admin.category:
+        class: Esolving\ShopcartBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm , group: shop, label: categories } 
+        arguments: [null, Esolving\ShopcartBundle\Entity\Category, SonataAdminBundle:CRUD ]  
+        
+    admin.category_language:
+        class: Esolving\ShopcartBundle\Admin\CategoryLanguageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm , group: shop, label: category_languages } 
+        arguments: [null, Esolving\ShopcartBundle\Entity\CategoryLanguage, SonataAdminBundle:CRUD ]  
+
+    admin.service:
+            class: Esolving\ShopcartBundle\Admin\ServiceAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm , group: shop, label: services } 
+            arguments: [null, Esolving\ShopcartBundle\Entity\Service, SonataAdminBundle:CRUD ]  
+            
+    admin.service_language:
+            class: Esolving\ShopcartBundle\Admin\ServiceLanguageAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm , group: shop, label: service_languages } 
+            arguments: [null, Esolving\ShopcartBundle\Entity\ServiceLanguage, SonataAdminBundle:CRUD ]  
+            
+    esolving_shopcart.twig.extension:
+        class: Esolving\ShopcartBundle\Twig\Extensions\EsolvingShopcartExtension
+        arguments: ['@translator']
+        tags:
+            - { name: twig.extension }
+
+            
+            

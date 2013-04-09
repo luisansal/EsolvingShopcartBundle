@@ -1,0 +1,21 @@
+{% extends "EsolvingShopcartBundle::template_user.html.twig"%}
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+{% block title %} {{ service.languages.0.name }} {% endblock%}
+{% block content %}
+<div id="content">
+    <div class="box">
+        <h2>{{ block('title') }}</h2>
+        <div class="service-media">{% media service.image, 'big' with {'width': 350, 'height': 175 }  %}</div>
+        <p>{{ service.languages.0.description | raw }}</p>
+        <p>{% trans %}price{% endtrans %}: {{ default_money }} {{ service.price }}</p>
+    {% if service.stock <= 0%}
+        <p>{% trans %}out_of_stock{% endtrans %}</p>
+    {% endif %}
+        <a class="button" href="{{ path('esolving_shopcartB_Shop_add_item_service_to_cart',{'service_id':service.id,'service':service.languages.0.slug}) }}">{% trans %}add_to_cart{% endtrans %}</a>
+    </div>
+</div>
+{% endblock content%}
+
+{% block sidebar %}
+    {% render 'EsolvingShopcartBundle:Shop:categories' with {'current_category':category} %}
+{% endblock sidebar %}

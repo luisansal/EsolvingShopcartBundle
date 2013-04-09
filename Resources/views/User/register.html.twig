@@ -1,0 +1,37 @@
+{% extends 'EsolvingShopcartBundle::template_user.html.twig'%}
+{% trans_default_domain 'EsolvingShopcartBundle'%}
+{% block title %}{% trans %}register_user{% endtrans %}{% endblock %}
+{% block content %}
+<div id="content-large">
+    <h1>{{ block('title') }}</h1>
+{{ html.jqueryUiGetNotice(info,status) }}
+    <form method="post" action="{{ path('esolving_shopcartB_User_register') }}" novalidate="" class="form_wrap" {{ form_enctype(form) }}>
+    {#<h3 style="color: black">General</h3>
+        {{ form_row(form.name) }}
+        {{ form_row(form.lastname) }}
+        {{ form_row(form.address) }}
+        {{ form_row(form.code) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.dateborn) }}
+        {{ form_row(form.distrit_type) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.groupblod_type) }}
+        {{ form_row(form.headquarter_type) }}
+        {{ form_row(form.phone) }}
+        {{ form_row(form.phonemovil) }}
+        {{ form_row(form.section_type) }}
+        {{ form_row(form.sex_type) }}
+        {{ form_row(form.status) }}
+        <h3 style="color: black">Roles</h3>
+        <ul class="roles" style="color: black">
+        {% for role in form.roles %}
+                <li style="color: black">{{ form_widget(role) }}<div class="form_label">&nbsp;</div><div class="form_widget">+</div></li> 
+        {% endfor %}
+            </ul>
+        {{ form_rest(form)}}#}
+    {{ form_widget(form) }}
+            <div class="form_label">&nbsp;</div>
+            <div class="form_widget"><input type="submit" value="{% trans %}register{% endtrans %}"></div>
+        </form>
+    </div>
+{% endblock content%}

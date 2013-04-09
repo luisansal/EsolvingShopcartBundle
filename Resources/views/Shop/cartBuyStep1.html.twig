@@ -1,0 +1,41 @@
+{% extends 'EsolvingShopcartBundle::template_user.html.twig'%}
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+{% block title%}{% trans %}buy_cart_step1{% endtrans %}{% endblock %}
+{% block content %}
+<div id="content">
+    {% if method_index == 0 %}
+        <p>{% trans with {'%name%':method_description} %}you_choosed_pay_for{% endtrans %}</p>
+        <form action="{{ path('esolving_shopcartB_Shop_cart_paypal')}}" method="get" target="_blank" name="cart_paypal">
+
+    {#<input type="hidden" name='esolving_shopcart_cart_id' value="{{ cart.getId() }}"/>#}
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="upload" value="1">
+            {#<input type="hidden" name="business" value="vende1_1351024224_biz@hotmail.com">#}
+            <input type="hidden" name="business" value="{{ global.email_master }}">
+    {#
+    <input type="hidden" name="item_name_1" value="carrito">
+    <input type="hidden" name="amount_1" value="1.00">#}
+    {# Si hubiera precio de flete <input type='hidden' name='shipping_1' value='1.75'>#}
+    {#<input type="hidden" name="item_name_2" value="Item name 2">
+    <input type="hidden" name="amount_2" value="2.00">#}
+    {% include 'EsolvingShopcartBundle:Shop:cartDescription.html.twig' with {'cart':cart,'disabled':true} %}
+            <div style="text-align: center">
+                <div>{% trans %}click_on_buy_if_you_are_sure{% endtrans %}</div>
+                <input type="image" src="{{ esolving_shopcartB_core.getSetting('link_paypal_image').languages.0.description}}" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            </div>
+        </form>
+    {% endif %}
+
+    {% if method_index == 1%}
+        <p>{% trans with {'%name%':method_description} %}you_choosed_pay_for{% endtrans %}</p>
+    {% include 'EsolvingShopcartBundle:Shop:cartDescription.html.twig' with {'cart':cart,'disabled':true} %}
+        <p>{% trans with {'%email_master%':global.email_master}%}info_transfer_to_buy{% endtrans %}</p>
+        <p>{{ business_cart }}</p>
+        <p>{% trans %}click_on_finish_if_you_are_sure{% endtrans %} <a href="{{ path('esolving_shopcartB_Shop_cartBuyEnd') }}" class="button">{% trans %}finalize{% endtrans %}</a></p>
+    {% endif %}
+    </div>
+{% endblock content %}
+
+{% block sidebar %}
+    {% render 'EsolvingShopcartBundle:Shop:categories' with {'current_category':''} %}
+{% endblock sidebar %}

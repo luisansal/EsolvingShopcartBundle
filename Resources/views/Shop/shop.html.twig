@@ -1,0 +1,28 @@
+{% extends 'EsolvingShopcartBundle::template_user.html.twig' %}
+
+{% trans_default_domain "EsolvingShopcartBundle" %}
+
+{% block title %} {% trans %} shop {% endtrans%}{% endblock %}
+
+{% block content %}
+<div id="content">
+    <div id="pagination-services">
+        {{ services.pagination.render() | raw }}
+    </div>
+    {% for service in services.pagination %}
+        <div class="box">
+            <h2><a href="{{ path('esolving_shopcartB_Shop_show_service',{'category':service.categories.0.languages.0.slug,'service':service.languages.0.slug,'service_id':service.id}) }}">{{ service.languages.0.name}}</a></h2>
+            <div class="service-media">{% media service.image, 'big' with {'width': 350, 'height': 175 }  %}</div>
+            <p>{{ service.languages.0.description | truncate(50, true)}} <a href="{{ path('esolving_shopcartB_Shop_show_service',{'category':service.categories.0.languages.0.slug,'service_id':service.id,'service':service.languages.0.slug}) }}">{% trans %}see_more{% endtrans %}</a></p>
+        </div>
+{% else %}
+        <div class="box">
+            <h2>{% trans %}no_travel_to_this_category{% endtrans %}</h2>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock content %}
+
+{% block sidebar %}
+    {% render 'EsolvingShopcartBundle:Shop:categories' with {'current_category':category} %}
+{% endblock sidebar %}

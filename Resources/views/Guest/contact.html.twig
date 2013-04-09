@@ -1,0 +1,75 @@
+{% extends 'EsolvingShopcartBundle::template_guest.html.twig'%}
+{% trans_default_domain "EsolvingShopcartBundle" %}
+{% block title %} {% trans %} contact_us {% endtrans%}{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script type=text/javascript>
+    $(function(){
+        $("form[name='{{form.vars.name}}'] input[name='btn_{{form.vars.name}}']").live("click",function(){
+            $.ajax({
+                type:"post",
+                dataType:'json',
+                data:$("form[name='{{ form.vars.name }}']").serialize(),
+                url: "{{path('esolving_shopcartB_contact')}}",
+                success:function(data){
+                    //$("#request-{{form.vars.name}}").html(data);
+                    if(data){
+                         $.map( data, function( item,i ) {
+                                    //$("#{{form.vars.name}}-"+item.name).html(item.error);
+                                    //alert(i);
+                                    $(".form_errors").eq(i).html(item.error);
+                                })
+                    }
+                }
+            });
+            return false;
+        });
+    });
+    </script>
+{% endblock%}
+{% block content %}
+    <div id='request-{{ form.vars.name }}'></div>
+    <h1>{{ block('title')}}</h1>
+    <div id='request-{{ form.vars.name }}'></div>
+{#<form action="{{ path('EsolvingShopcartBundle_contact') }}" method="post" novalidate>#}
+    {#<form action="{{ path('EsolvingShopcartBundle_contact') }}" method="post" {{ form_enctype(form) }} name="{{ form.vars.name}}">#}
+    <form action="{{ path('esolving_shopcartB_contact') }}" method="post" name="{{ form.vars.name}}" novalidate="" class="form_wrap">    
+     {#{{ form_errors(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.email) }}
+    {{ form_rest(form) }}#}
+        {#{ form.name.vars.id}#}
+        {#{form.vars.name}#}
+            {#<div class="form_row">
+                <div class="form_label">{{ form_label(form.name) }}</div>
+                <div class="form_widget">{{ form_widget(form.name) }}</div>
+                <div class="form_errors">{{ form_errors(form.name) }}</div>
+                <div id='{{form.vars.name}}-{{form.name.vars.name}}'></div>
+            </div>
+            <div class="form_row">
+                <div class="form_label">{{ form_label(form.email) }}</div>
+                <div class="form_widget">{{ form_widget(form.email) }}</div>
+                <div class="form_errors">{{ form_errors(form.email) }}</div>
+                <div id='{{form.vars.name}}-{{form.email.vars.name}}'></div>
+            </div>
+            <div class="form_row">
+                <div class="form_label">{{ form_label(form.subject) }}</div>
+                <div class="form_widget">{{ form_widget(form.subject) }}</div>
+                <div class="form_errors">{{ form_errors(form.subject) }}</div>
+                <div id='{{form.vars.name}}-{{form.subject.vars.name}}'></div>
+            </div>
+            <div class="form_row">
+                <div class="form_label">{{ form_label(form.message) }}</div>
+                <div class="form_widget">{{ form_widget(form.message) }}</div>
+                <div class="form_errors">{{ form_errors(form.message) }}</div>
+                <div id='{{form.vars.name}}-{{form.message.vars.name}}'></div>
+            </div>
+        {{form_rest(form)}}
+            <input type="submit" value='{%trans%}send_form{%endtrans%}' name='btn_{{form.vars.name}}' />#}
+            {{ form_widget(form)}}
+            <div class="form_label">&nbsp;</div>
+            <div class="form_widget"><input type="submit" value='{%trans%}send_form{%endtrans%}' name='btn_{{form.vars.name}}' /></div>
+        </form>
+{% endblock%}
+
+

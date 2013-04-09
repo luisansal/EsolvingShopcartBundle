@@ -1,0 +1,10 @@
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+{% if paymentMethod == 'transfer'%}
+    {% set transfer = true %}
+    {% set info_confirmation = 'confirmation_payment_transfer' | trans() %}
+{% else %}
+    {% set transfer = false %}
+    {% set info_confirmation = 'confirmation_payment_paypal' | trans() %}
+{% endif %}
+{{ info_confirmation }}
+{% include 'EsolvingShopcartBundle:Shop:cartDescription.html.twig' with {'cart':cart,'disabled':true,'transfer':transfer} %}

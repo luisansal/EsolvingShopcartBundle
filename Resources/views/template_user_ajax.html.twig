@@ -1,0 +1,14 @@
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+{% if form is defined %}
+{% form_theme form 'EsolvingShopcartBundle:Form:fields.html.twig' %}
+{% endif %}
+{% import 'EsolvingShopcartBundle:Html:html.html.twig' as html %}
+{% set default_money = esolving_shopcartB_core.getSetting('default_money').settingType.languages.0.description %}
+{% set money_soles = esolving_shopcartB_core.getSetting('money_soles').settingType.languages.0.description %}
+{% set gvi_description = esolving_shopcartB_core.getSetting('gvi').settingType.languages.0.description %}
+{% set gvi_value = esolving_shopcartB_core.getSetting('gvi').value %}
+{% set dolars_to_soles = esolving_shopcartB_core.getSetting('dolars_to_soles').value %}
+{% set dolars_to_soles_description = esolving_shopcartB_core.getSetting('dolars_to_soles').settingType.languages.0.description %}
+{% set business_cart = esolving_shopcartB_core.getSetting('business_cart').settingType.languages.0.description %}
+{% block content %}
+{% endblock content%}

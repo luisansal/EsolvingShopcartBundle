@@ -1,0 +1,5 @@
+{% extends 'EsolvingShopcartBundle::template_user_ajax.html.twig' %}
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+{% block content %}
+    {% include 'EsolvingShopcartBundle:DataMiningSeller:checkTable.html.twig' with {'items':items} %}                                    
+{% endblock content %}

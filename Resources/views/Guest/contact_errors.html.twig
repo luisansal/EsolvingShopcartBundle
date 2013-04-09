@@ -1,0 +1,16 @@
+{% extends app.request.isXmlHttpRequest ? "EsolvingShopcartBundle::template_guest_ajax.html.twig" : "EsolvingShopcartBundle::template_guest.html.twig" %}
+{% block content %}
+{{ form_errors(form)}}
+<div class="form_row">
+    <div class="form_errors">{{ form_errors(form.name) }}</div>
+</div>
+<div class="form_row">
+    <div class="form_errors">{{ form_errors(form.email) }}</div>
+</div>
+<div class="form_row">
+    <div class="form_errors">{{ form_errors(form.subject) }}</div>
+</div>
+<div class="form_row">
+    <div class="form_errors">{{ form_errors(form.message) }}</div>
+</div>
+{% endblock content%}

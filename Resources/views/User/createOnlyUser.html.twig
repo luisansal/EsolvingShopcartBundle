@@ -1,0 +1,9 @@
+{% extends 'EsolvingShopcartBundle::template_guest.html.twig'%}
+{% trans_default_domain 'EsolvingShopcartBundle'%}
+{% block title %}{% trans %}register_user{% endtrans %}{% endblock %}
+{% block content %}
+<form action="{{ path('esolving_shopcartB_User_create_only_user') }}" {{ form_enctype(form) }} method="post" novalidate="">
+    {{ form_widget(form) }}
+        <input type="submit" value="{% trans %}register{% endtrans %}">
+</form>
+{% endblock content %}

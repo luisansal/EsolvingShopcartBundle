@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="EsolvingShopcartBundle.en.xlf">
+        <body>
+            <trans-unit id="home">
+                <source>home</source>
+                <target>Inicio</target>
+            </trans-unit>
+            <trans-unit id="services">
+                <source>services</source>
+                <target>Servicios</target>
+            </trans-unit>
+            <trans-unit id="contact_us">
+                <source>contact_us</source>
+                <target>Contáctenos</target>
+            </trans-unit>
+            <trans-unit id="news">
+                <source>news</source>
+                <target>Noticias</target>
+            </trans-unit>
+            <trans-unit id="log_in">
+                <source>log_in</source>
+                <target>Iniciar sesión</target>
+            </trans-unit>
+            <trans-unit id="code">
+                <source>code</source>
+                <target>Código</target>
+            </trans-unit>
+            <trans-unit id="password">
+                <source>password</source>
+                <target>Contraseña</target>
+            </trans-unit>
+            <trans-unit id="shop">
+                <source>shop</source>
+                <target>Tienda</target>
+            </trans-unit>
+            <trans-unit id="log_out">
+                <source>log_out</source>
+                <target>Salir</target>
+            </trans-unit>
+            <trans-unit id="name">
+                <source>name</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="email">
+                <source>email</source>
+                <target>Correo electrónico</target>
+            </trans-unit>
+            <trans-unit id="subject">
+                <source>subject</source>
+                <target>Sujeto</target>
+            </trans-unit>
+            <trans-unit id="message">
+                <source>message</source>
+                <target>Mensaje</target>
+            </trans-unit>
+            <trans-unit id="send_form">
+                <source>send_form</source>
+                <target>Enviar formulario</target>
+            </trans-unit>
+            <trans-unit id="language">
+                <source>language</source>
+                <target>Lenguaje</target>
+            </trans-unit>
+            <trans-unit id="Bad credentials">
+                <source>Bad credentials</source>
+                <target>Credenciales incorrectas.</target>
+            </trans-unit>
+            <trans-unit id="and">
+                <source>and</source>
+                <target>y</target>
+            </trans-unit>
+            <trans-unit id="designed">
+                <source>designed</source>
+                <target>Diseñado</target>
+            </trans-unit>
+            <trans-unit id="developed_by">
+                <source>developed_by</source>
+                <target>Desarrollado por</target>
+            </trans-unit>
+            <trans-unit id="my_account">
+                <source>my_account</source>
+                <target>Mi cuenta</target>
+            </trans-unit>
+            <trans-unit id="profile">
+                <source>profile</source>
+                <target>Perfíl</target>
+            </trans-unit>
+            <trans-unit id="show">
+                <source>show</source>
+                <target>Mostrar %name%</target>
+            </trans-unit>
+            <trans-unit id="last_name">
+                <source>last_name</source>
+                <target>Appelido</target>
+            </trans-unit>
+            <trans-unit id="address">
+                <source>address</source>
+                <target>Dirección</target>
+            </trans-unit>
+            <trans-unit id="date_born">
+                <source>date_born</source>
+                <target>Fecha de nacimiento</target>
+            </trans-unit>
+            <trans-unit id="date_modificated">
+                <source>date_modificated</source>
+                <target>Fecha modificado</target>
+            </trans-unit>
+            <trans-unit id="date_disabled">
+                <source>date_disabled</source>
+                <target>Fecha deshabilitado</target>
+            </trans-unit>
+            <trans-unit id="date_registered">
+                <source>date_registered</source>
+                <target>Fecha registrado</target>
+            </trans-unit>
+            <trans-unit id="distrit">
+                <source>distrit</source>
+                <target>Distrito</target>
+            </trans-unit>
+            <trans-unit id="group_blod">
+                <source>group_blod</source>
+                <target>Grupo sanguineo</target>
+            </trans-unit>
+            <trans-unit id="groups">
+                <source>groups</source>
+                <target>Roles</target>
+            </trans-unit>
+            <trans-unit id="phone">
+                <source>phone</source>
+                <target>Telefono</target>
+            </trans-unit>
+            <trans-unit id="phone_movil">
+                <source>phone_movil</source>
+                <target>Teléfono movil</target>
+            </trans-unit>
+            <trans-unit id="sex">
+                <source>sex</source>
+                <target>Sexo</target>
+            </trans-unit>
+            <trans-unit id="status">
+                <source>status</source>
+                <target>Estado</target>
+            </trans-unit>
+            <trans-unit id="salt">
+                <source>salt</source>
+                <target>Aleatorio</target>
+            </trans-unit>
+            <trans-unit id="actual_password">
+                <source>actual_password</source>
+                <target>Contraseña actual</target>
+            </trans-unit>
+            <trans-unit id="confirmation_password">
+                <source>confirmation_password</source>
+                <target>Confirmación de contraseña</target>
+            </trans-unit>
+            <trans-unit id="new_password">
+                <source>new_password</source>
+                <target>Nueva contraseña</target>
+            </trans-unit>
+            <trans-unit id="age">
+                <source>age</source>
+                <target>Edad</target>
+            </trans-unit>
+            <trans-unit id="not_valid_form">
+                <source>not_valid_form</source>
+                <target>Formulario inválido</target>
+            </trans-unit>
+            <trans-unit id="roles">
+                <source>roles</source>
+                <target>Roles</target>
+            </trans-unit>
+            <trans-unit id="registered">
+                <source>registered</source>
+                <target>Registrado</target>
+            </trans-unit>
+            <trans-unit id="cant_registered">
+                <source>cant_registered</source>
+                <target>No pudo ser registrado</target>
+            </trans-unit>
+            <trans-unit id="not_registered">
+                <source>not_registered</source>
+                <target>No registrado</target>
+            </trans-unit>
+            <trans-unit id="users">
+                <source>users</source>
+                <target>Usuarios</target>
+            </trans-unit>
+            <trans-unit id="spanish">
+                <source>spanish</source>
+                <target>Español</target>
+            </trans-unit>
+            <trans-unit id="english">
+                <source>english</source>
+                <target>English</target>
+            </trans-unit>
+            <trans-unit id="french">
+                <source>french</source>
+                <target>French</target>
+            </trans-unit>
+            <trans-unit id="register_user">
+                <source>register_user</source>
+                <target>Registrar usuario</target>
+            </trans-unit>
+            <trans-unit id="register">
+                <source>register</source>
+                <target>Registrar</target>
+            </trans-unit>
+            <trans-unit id="types">
+                <source>types</source>
+                <target>Tabla maestra</target>
+            </trans-unit>
+            <trans-unit id="languages">
+                <source>languages</source>
+                <target>Lenguajes</target>
+            </trans-unit>
+            <trans-unit id="settings">
+                <source>settings</source>
+                <target>Configuraciones</target>
+            </trans-unit>
+            <trans-unit id="categories">
+                <source>categories</source>
+                <target>Categorías</target>
+            </trans-unit>
+            <trans-unit id="keep_me_logged_in">
+                <source>keep_me_logged_in</source>
+                <target>No cerrar sesión</target>
+            </trans-unit>
+            <trans-unit id="administration">
+                <source>administration</source>
+                <target>Administración</target>
+            </trans-unit>
+            <trans-unit id="news_travels">
+                <source>news_travels</source>
+                <target>Nuevos viajes</target>
+            </trans-unit>
+            <trans-unit id="show_my_cart">
+                <source>show_my_cart</source>
+                <target>Mostrar mi carrito</target>
+            </trans-unit>
+            <trans-unit id="category_languages">
+                <source>category_languages</source>
+                <target>Lenguajes de categorias</target>
+            </trans-unit>
+            <trans-unit id="no_travel_to_this_category">
+                <source>no_travel_to_this_category</source>
+                <target>No hay viajes para dicha categoría</target>
+            </trans-unit>
+            <trans-unit id="see_more">
+                <source>see_more</source>
+                <target>Ver más</target>
+            </trans-unit>
+            <trans-unit id="update_profile">
+                <source>update_profile</source>
+                <target>Actualizar perfíl</target>
+            </trans-unit>
+            <trans-unit id="price">
+                <source>price</source>
+                <target>Precio</target>
+            </trans-unit>
+            <trans-unit id="buy_trip">
+                <source>buy_trip</source>
+                <target>Comprar viaje</target>
+            </trans-unit>
+            <trans-unit id="my_cart">
+                <source>my_cart</source>
+                <target>Mi carrito</target>
+            </trans-unit>
+            <trans-unit id="save">
+                <source>save</source>
+                <target>Guardar</target>
+            </trans-unit>
+            <trans-unit id="delete">
+                <source>delete</source>
+                <target>Eliminar</target>
+            </trans-unit>
+            <trans-unit id="not_bougth_anything_yet">
+                <source>not_bougth_anything_yet</source>
+                <target>Aún no ha comprado nada</target>
+            </trans-unit>
+            <trans-unit id="id">
+                <source>id</source>
+                <target>Id</target>
+            </trans-unit>
+            <trans-unit id="image">
+                <source>image</source>
+                <target>Imágen</target>
+            </trans-unit>
+            <trans-unit id="travel">
+                <source>travel</source>
+                <target>Viaje</target>
+            </trans-unit>
+            <trans-unit id="quantity">
+                <source>quantity</source>
+                <target>Cantidad</target>
+            </trans-unit>
+            <trans-unit id="option">
+                <source>option</source>
+                <target>Opción</target>
+            </trans-unit>
+            <trans-unit id="subtotal">
+                <source>subtotal</source>
+                <target>Sub total</target>
+            </trans-unit>
+            <trans-unit id="total">
+                <source>total</source>
+                <target>Total</target>
+            </trans-unit>
+            <trans-unit id="category">
+                <source>category</source>
+                <target>Categoría</target>
+            </trans-unit>
+            <trans-unit id="add_to_cart">
+                <source>add_to_cart</source>
+                <target>Añadir al carrito</target>
+            </trans-unit>
+            <trans-unit id="gvi">
+                <source>gvi</source>
+                <target>IGV</target>
+            </trans-unit>
+            <trans-unit id="amount">
+                <source>amount</source>
+                <target>Suma</target>
+            </trans-unit>
+            <trans-unit id="total_dolars">
+                <source>total_dolars</source>
+                <target>Total en dolares</target>
+            </trans-unit>
+            <trans-unit id="total_soles">
+                <source>total_soles</source>
+                <target>Total en soles</target>
+            </trans-unit>
+            <trans-unit id="buy">
+                <source>buy</source>
+                <target>Comprar</target>
+            </trans-unit>
+            <trans-unit id="buy_cart_method">
+                <source>buy_cart_methods</source>
+                <target>Métodos de compra del carrito</target>
+            </trans-unit>
+            <trans-unit id="choose_buy_method">
+                <source>choose_buy_method</source>
+                <target>Elija el método a comprar</target>
+            </trans-unit>
+            <trans-unit id="accept">
+                <source>accept</source>
+                <target>Aceptar</target>
+            </trans-unit>
+            <trans-unit id="paypal">
+                <source>paypal</source>
+                <target>Paypal</target>
+            </trans-unit>
+            <trans-unit id="transfer">
+                <source>transfer</source>
+                <target>Transferencia</target>
+            </trans-unit>
+            <trans-unit id="include_gvi">
+                <source>include_gvi</source>
+                <target>Incluido IGV</target>
+            </trans-unit>
+            <trans-unit id="buy_cart_step1">
+                <source>buy_cart_step1</source>
+                <target>1° paso para la compra</target>
+            </trans-unit>
+            <trans-unit id="you_choosed_pay_for">
+                <source>you_choosed_pay_for</source>
+                <target>Has elegido el pago por %name%</target>
+            </trans-unit>
+            <trans-unit id="travels">
+                <source>travels</source>
+                <target>Viajes</target>
+            </trans-unit>
+            <trans-unit id="you_have_a_x_time_left_to_make_your_purchase">
+                <source>you_have_a_x_time_left_to_make_your_purchase</source>
+                <target>Tienes un tiempo de %time% para realizar tu compra</target>
+            </trans-unit>
+            <trans-unit id="finalize">
+                <source>finalize</source>
+                <target>Finalizar</target>
+            </trans-unit>
+            <trans-unit id="info_payment_paypal_email">
+                <source>info_payment_paypal_email</source>
+                <target>Gracias por usar el sistema de pago Paypal, es seguro y nosotros te confirmaremos tu pago en nuestra cuenta de Paypal a tu correo electrónico.</target>
+            </trans-unit>
+            <trans-unit id="info_payment_transfer_email">
+                <source>info_payment_transfer_email</source>
+                <target>Confirmanos tu compra con un email a %email_master% con tu Numero de transacción de la cuenta: %business_cart%.</target>
+            </trans-unit>
+            <trans-unit id="info_transfer_to_buy">
+                <source>info_transfer_to_buy</source>
+                <target>Deberas remitirnos un email con la certificación de tu pago al email %email_master%
+    realizado a este número de cuenta ahorro en soles:</target>
+            </trans-unit>
+            <trans-unit id="thanks_for_buying">
+                <source>thanks_for_buying</source>
+                <target>Gracias por su compra</target>
+            </trans-unit>
+            <trans-unit id="thanks_for_paypal_payment">
+                <source>thanks_for_paypal_payment</source>
+                <target>Gracias por su compra por Paypal</target>
+            </trans-unit>
+            <trans-unit id="confirm_us_your_check_out">
+                <source>confirm_us_your_check_out</source>
+                <target>Confirmenos su compra</target>
+            </trans-unit>
+            <trans-unit id="you_was_registered">
+                <source>you_was_registered</source>
+                <target>Usted se registró</target>
+            </trans-unit>
+            <trans-unit id="createdAt">
+                <source>createdAt</source>
+                <target>Creado en</target>
+            </trans-unit>
+            <trans-unit id="is_not_valid">
+                <source>is_not_valid</source>
+                <target>No es valido</target>
+            </trans-unit>
+            <trans-unit id="moderates">
+                <source>moderates</source>
+                <target>Moderados</target>
+            </trans-unit>
+            <trans-unit id="no_moderates">
+                <source>no_moderates</source>
+                <target>No moderados</target>
+            </trans-unit>
+            <trans-unit id="client">
+                <source>client</source>
+                <target>Cliente</target>
+            </trans-unit>
+            <trans-unit id="items">
+                <source>items</source>
+                <target>Items</target>
+            </trans-unit>
+            <trans-unit id="success">
+                <source>success</source>
+                <target>Realizado</target>
+            </trans-unit>
+            <trans-unit id="empty">
+                <source>empty</source>
+                <target>Vacío</target>
+            </trans-unit>
+            <trans-unit id="error_confirmation_payment_paypal">
+                <source>error_confirmation_payment_paypal</source>
+                <target>Hubo un error al momento de verificar su pago por Paypal, perdone las molestias, por favor realizar su pago a tiempo.</target>
+            </trans-unit>
+            <trans-unit id="error_confirmation_payment_transfer">
+                <source>error_confirmation_payment_transfer</source>
+                <target>Hubo un error al momento de verificar su pago por Transferencia, perdone las molestias, por favor realizar su pago a tiempo.</target>
+            </trans-unit>
+            <trans-unit id="confirmation_payment_paypal">
+                <source>confirmation_payment_paypal</source>
+                <target>Se confirmó su pago por Paypal con los siguientes viajes.</target>
+            </trans-unit>
+            <trans-unit id="confirmation_payment_transfer">
+                <source>confirmation_payment_transfer</source>
+                <target>Se confirmó su pago por Transferencia con los siguientes viajes.</target>
+            </trans-unit>
+            <trans-unit id="sorry_was_an_error_in_your_payment">
+                <source>sorry_was_an_error_in_your_payment</source>
+                <target>Perdone hubo un error al momento de revisar su pago.</target>
+            </trans-unit>
+            <trans-unit id="confirmation_of_payment">
+                <source>confirmation_of_payment</source>
+                <target>Se confirmó su pago, muchas gracias por su compra.</target>
+            </trans-unit>
+            <trans-unit id="best_sellers">
+                <source>best_sellers</source>
+                <target>Los mas vendidos</target>
+            </trans-unit>
+            <trans-unit id="bad_sellers">
+                <source>bad_sellers</source>
+                <target>Los menos vendidos</target>
+            </trans-unit>
+            <trans-unit id="just_date">
+                <source>just_date</source>
+                <target>Solo fecha</target>
+            </trans-unit>
+            <trans-unit id="betweenC">
+                <source>betweenC</source>
+                <target>Entre</target>
+            </trans-unit>
+            <trans-unit id="search">
+                <source>search</source>
+                <target>Buscar</target>
+            </trans-unit>
+            <trans-unit id="data_mining_sellers">
+                <source>data_mining_sellers</source>
+                <target>Minería de datos ventas</target>
+            </trans-unit>
+            <trans-unit id="moderation">
+                <source>moderation</source>
+                <target>Moderación</target>
+            </trans-unit>
+            <trans-unit id="date_check_out">
+                <source>date_check_out</source>
+                <target>Fecha de compra a moderar</target>
+            </trans-unit>
+            <trans-unit id="check">
+                <source>check</source>
+                <target>Revisar</target>
+            </trans-unit>
+            <trans-unit id="enabled">
+                <source>enabled</source>
+                <target>Habilitado</target>
+            </trans-unit>
+            <trans-unit id="disabled">
+                <source>disabled</source>
+                <target>Deshabilitado</target>
+            </trans-unit>
+            <trans-unit id="edit">
+                <source>edit</source>
+                <target>Editar</target>
+            </trans-unit>
+            <trans-unit id="updated">
+                <source>updated</source>
+                <target>Actualizado</target>
+            </trans-unit>
+            <trans-unit id="show_users">
+                <source>show_users</source>
+                <target>Mostrar usuarios</target>
+            </trans-unit>
+            <trans-unit id="photo">
+                <source>photo</source>
+                <target>Foto</target>
+            </trans-unit>
+            <trans-unit id="options">
+                <source>options</source>
+                <target>Opciones</target>
+            </trans-unit>
+            <trans-unit id="edit_user">
+                <source>edit_user</source>
+                <target>Editar usuario</target>
+            </trans-unit>
+            <trans-unit id="delete_user">
+                <source>delete_user</source>
+                <target>Eliminar usuario</target>
+            </trans-unit>
+            <trans-unit id="are_you_sure_to_delete">
+                <source>are_you_sure_to_delete</source>
+                <target>¿Está seguro de eliminar este usuario?</target>
+            </trans-unit>
+            <trans-unit id="service_languages">
+                <source>service_languages</source>
+                <target>Lenguages de servicios</target>
+            </trans-unit>
+            <trans-unit id="general">
+                <source>general</source>
+                <target>General</target>
+            </trans-unit>
+            <trans-unit id="role">
+                <source>role</source>
+                <target>Rol</target>
+            </trans-unit>
+            <trans-unit id="description">
+                <source>description</source>
+                <target>Descripción</target>
+            </trans-unit>
+            <trans-unit id="setting">
+                <source>setting</source>
+                <target>Configuración</target>
+            </trans-unit>
+            <trans-unit id="value">
+                <source>value</source>
+                <target>Valor</target>
+            </trans-unit>
+            <trans-unit id="setting_language">
+                <source>setting_language</source>
+                <target>Lenguajes de configuraciones</target>
+            </trans-unit>
+            <trans-unit id="imagen">
+                <source>imagen</source>
+                <target>Imágen</target>
+            </trans-unit>
+            <trans-unit id="roles_access">
+                <source>roles_access</source>
+                <target>Niveles de acceso</target>
+            </trans-unit>
+            <trans-unit id="no_travels_to_this_category">
+                <source>no_travels_to_this_category</source>
+                <target>No hay viajes para dicha categoria</target>
+            </trans-unit>
+            <trans-unit id="media">
+                <source>media</source>
+                <target>Multimedia</target>
+            </trans-unit>
+            <trans-unit id="date_moderate">
+                <source>date_moderate</source>
+                <target>Fecha moderado</target>
+            </trans-unit>
+            <trans-unit id="click_on_buy_if_you_are_sure">
+                <source>click_on_buy_if_you_are_sure</source>
+                <target>Dale click en comprar solo si estas seguro de tu compra</target>
+            </trans-unit>
+            <trans-unit id="click_on_finish_if_you_are_sure">
+                <source>click_on_finish_if_you_are_sure</source>
+                <target>Dale click en finalizar si estas seguro de tu compra</target>
+            </trans-unit>
+            <trans-unit id="sesion">
+                <source>sesion</source>
+                <target>Sesión</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
+

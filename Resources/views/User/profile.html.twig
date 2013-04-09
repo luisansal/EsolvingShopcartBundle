@@ -1,0 +1,63 @@
+{% extends 'EsolvingShopcartBundle::template_user.html.twig'%}
+{% trans_default_domain 'EsolvingShopcartBundle'%}
+{% block title %}{% trans %}profile{% endtrans %}{% endblock %}
+{%block content%}
+{#{% trans with {'%name%':'Luis' }%}show %name%{% endtrans %}#}
+{#{{ form_errors(form)}}#}
+<h1>{{ block('title') }}</h1>
+{{ html.jqueryUiGetNotice(info,status) }}
+{#{% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="flash-notice">
+        {{ flashMessage }}
+    </div>
+{% endfor %}#}
+<form name='{{form.vars.name}}' novalidate="" action='{{ path('esolving_shopcartB_User_profile') }}' method="post" class="form_wrap" {{ form_enctype(form) }}>
+    <div class='form_row'>
+        <div class='form_label'>{% trans %} name {% endtrans %}</div>
+        <div class='form_widget'>{{ app.user.name }}</div>
+    </div>
+    <div class='form_row'>
+        <div class='form_label'>{% trans %} last_name {% endtrans %}</div>
+        <div class='form_widget'>{{ app.user.lastname }}</div>
+    </div>
+    <div class='form_row'>
+        <div class='form_label'>{% trans %} address {% endtrans %}</div>
+        <div class='form_widget'>{{ app.user.address }}</div>
+    </div>
+    <div class='form_row'>
+        <div class='form_label'>{% trans %} code {% endtrans %}</div>
+        <div class='form_widget'>{{ app.user.code }}</div>
+    </div>
+        {{ form_row(form.actualPassword) }}
+        {{ form_row(form.passwordRepeated)}}
+        {#{{ form_row(form.newPassword) }}
+        {{ form_row(form.confirmationPassword)}}#}
+    <div class='form_row'>
+        <div class='form_label'>{% trans %} age {% endtrans %}</div>
+        <div class='form_widget'>{{ app.user.age }}</div>
+    </div>
+    {{ form_row(form.email)}}
+    {{ form_row(form.sex_type) }}
+        {#{{form_widget(form._token)}}#}
+        {{form_rest(form)}}
+        {#{{ form_widget(form) }}#}
+    <div class="form_row">
+        <div class="form_label">&nbsp;</div>
+        <div class="form_widget">
+                {% media app.user.image,'small' %}
+            </div>
+        </div>
+        <div class='form_row'>
+            <div class='form_label'>&nbsp;</div>
+            <div class='form_widget'><input type=submit name='btn_{{ form.vars.name}}' value="{% trans %}update_profile{% endtrans%}"></div>
+        </div>
+    </form>
+{# first and second part have this options: 
+none, short, medium, long and full
+language: is the language that show
+#}
+{#{% set firstPart = 'full'%}
+{% set secondPart = 'long'%}
+{% set language = app.request.locale %}
+{{ app.user.dateborn |localizeddate(firstPart,secondPart,language)}}#}
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'EsolvingShopcartBundle::template_user.html.twig'%}
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+{% block title%}{% trans %}buy_cart_methods{% endtrans %}{% endblock %}
+{% block content %}
+<div id="content">
+    <h1>{{ block('title') }}</h1>
+    <h3>{% trans %}choose_buy_method{% endtrans %}</h3>
+    <form method="get" action="{{ path('esolving_shopcartB_Shop_cart_buy_step1') }}">
+        {% for method in form.method%}
+        {% if loop.first %}
+        {{ form_widget(method,{'attr':{'checked':'checked'}})}}
+        {% else %}
+        {{ form_widget(method)}}
+        {% endif%}
+
+        {{ form_label(method)}}
+            <br>
+        {% endfor %}
+            <input type="submit" value="{% trans %}accept{% endtrans %}"/>
+        </form>
+    </div>
+{% endblock content %}

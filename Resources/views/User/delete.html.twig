@@ -1,0 +1,63 @@
+{% extends 'EsolvingShopcartBundle::template_user.html.twig'%}
+{% trans_default_domain 'EsolvingShopcartBundle'%}
+{% block title %}{% trans %}delete_user{% endtrans %}{% endblock %}
+{% block content %}
+<h1>{{ block('title') }}</h1>
+{% trans %}are_you_sure_to_delete{% endtrans %}
+<table>
+    <tr>
+        <td>{% trans %}name{% endtrans %}</td>
+        <td>{{ user.__toString }}</td>
+    </tr>
+    <tr>
+        <td>{% trans %}address{% endtrans %}</td>
+        <td>{{ user.address }}</td>
+    </tr>
+    <tr>
+        <td>{% trans %}dateborn{% endtrans %}</td>
+        <td>{{ user.dateBorn | localizeddate('long') }}</td>
+    </tr>
+    <tr>
+        <td>{% trans %}distrit{% endtrans %}</td>
+        <td>{{ user.distritType.languages.0.description }}</td>
+    </tr>
+    <tr>
+        <td>{% trans %}email{% endtrans %}</td>
+        <td>{{ user.email }}</td>
+    </tr>
+    <tr>
+        <td>{% trans %}group_blod{% endtrans %}</td>
+        <td>{{ user.groupblodType.languages.0.description }}</td>
+    </tr>
+    <tr>
+        <td>{% trans %}phone{% endtrans %}</td>
+        <td>{{ user.phone }}</td>
+    </tr>
+    <tr>
+        <td>{% trans %}phone_movil{% endtrans %}</td>
+        <td>{{ user.phoneMovil }}</td>
+    </tr>
+    <tr>
+        <td>{% trans %}sex{% endtrans %}</td>
+        <td>{{ user.sexType.languages.0.description }}</td>
+    </tr>
+    <tr>
+        <td>{% trans %}roles{% endtrans %}</td>
+        <td>
+            <ul>
+            {% for role in user.rolesaccess %}
+                    <ol>{{ role.roleType.languages.0.description }}</ol>
+            {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>{% trans %}status{% endtrans %}</td>
+            <td>{{ user.status }}</td>
+        </tr>
+    </table>
+    <form action="{{ path('esolving_shopcartB_User_delete',{'user_id':user.id}) }}" method="post" {{ form_enctype(form) }} class="form_wrap">
+    {{ form_widget(form) }}
+            <input type="submit" value="{% trans %}delete{% endtrans %}"/>
+        </form>
+{% endblock content %}

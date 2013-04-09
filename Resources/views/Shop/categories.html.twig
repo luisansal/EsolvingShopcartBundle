@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+{% block body %}
+<div id="sidebar">
+    <div class="box">
+        <a href="{{ path('esolving_shopcartB_Shop_cart') }}">{% trans %}show_my_cart{% endtrans%}</a>
+    {% if cart %}
+        <p>
+{{ cart.totalItems }} {% if cart.totalItems > 1 %} {% trans %}travels{% endtrans %}{% else %}{% trans %}travel{% endtrans %}{% endif %}, {% trans %}include_gvi{% endtrans %}:
+            </p>
+            <p>
+{% trans %}total_soles{% endtrans %}: {{ default_money }} {{ cart.totalPrice* esolving_shopcartB_core.getSetting('gvi').value + cart.totalPrice }}
+                    </p>
+            <p>
+{% trans %}total_dolars{% endtrans %}: {{ money_dolars }} {{ ((cart.totalPrice* esolving_shopcartB_core.getSetting('gvi').value + cart.totalPrice)/esolving_shopcartB_core.getSetting('dolars_to_soles').value) | number_format(2,'.',',') }}
+                </p>
+    {% endif %}
+
+
+                    <h3>{% trans %} categories {% endtrans %}</h3>
+                    <ul class="list">
+    {% for category in categories %}
+                            <li class="{% if loop.first %}first{% endif %}{% if loop.last %}last{% endif %} {% if current_category == category.languages[0].slug %}current_category{% endif %}"><a href="{{ path('esolving_shopcartB_Shop_shop',{'category':category.languages[0].slug,'category_id':category.id })}}">{{ category.languages[0].name }}</a></li>
+    {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+{% endblock body %}

@@ -1,0 +1,21 @@
+{% extends 'EsolvingShopcartBundle::template_guest.html.twig'%}
+{% trans_default_domain 'EsolvingShopcartBundle'%}
+{% block content %}
+<h1>{% trans %} log_in_to_backend {% endtrans %}</h1>
+{#{% if app.user %}
+{% for role in app.user.roles %}
+{{ role }}
+{% endfor%}
+{% endif%}#}
+{% if error %}
+<div class="form_errors">{{ error.message | trans() }}</div>
+{% endif %}
+<form method="post" action="{{ path('login_check_backend') }}" class="form_wrap">
+    <div class="form_label">{% trans %} code {% endtrans %}</div>
+    <div class="form_widget"><input type='text' name='_username' value='{{ last_username }}'></div>
+    <div class="form_label">{% trans %} password {% endtrans %}</div>
+    <div class="form_widget"><input type='password' name='_password'></div>
+    <div class="form_label">&nbsp;</div>
+    <div class="form_widget"><input type='submit' value='{% trans %} log_in {% endtrans %}'></div>
+</form>
+{% endblock content %}

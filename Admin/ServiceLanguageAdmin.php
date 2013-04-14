@@ -32,7 +32,13 @@ class ServiceLanguageAdmin extends Admin {
                     "label" => 'language',
                     "choices" => $choiceLanguages))
                 ->add('name', null, array("label" => 'name'))
-                ->add('description', null, array("label" => 'description'))
+                ->add('description', null, array(
+                    "label" => 'description',
+                    'attr' => array(
+                        'class' => 'tinymce',
+                        'data-theme' => 'advanced'
+                    )
+                ))
                 ->end()
         ;
     }
